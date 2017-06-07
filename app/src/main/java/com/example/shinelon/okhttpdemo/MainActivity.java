@@ -16,6 +16,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webview_layout);
+        init();
 //        WebView webView = (WebView) findViewById(R.id.webView);
 //        webView.loadUrl("http://www.bilibili.com/");
 //        Button button =(Button)findViewById(R.id.button);
@@ -43,10 +44,9 @@ public class MainActivity extends Activity {
     private void init() {
         webView = (WebView) findViewById(R.id.webView);
         webView.loadUrl("http://www.bilibili.com");
-        webView.setWebChromeClient(new WebViewClient(){
+        webView.setWebViewClient(new WebViewClient() {
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view,String url)
-            {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
             }
